@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { withTranslation } from "react-i18next";
+
 import "./TableDelay.css";
 import RowDelayMobile from "../Row/RowDelayMobile";
+import { calculateRowProps } from "../../functions";
+
 
 class TableDelayMobile extends Component {
-  componentDidUpdate = () => {};
+  componentDidUpdate = () => { };
 
   render() {
+    const { stations, stationId, trains, timeFilter } = this.props;
+
     return (
       <table className="delay-table delay-table--mobile">
         <thead>
@@ -17,24 +22,12 @@ class TableDelayMobile extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.rows &&
-            this.props.rows.map((item, index) => (
-              <RowDelayMobile
-                key={index}
-                theme={this.props.theme}
-                stationsTypes={item.stationsTypes}
-                connectNumber={item.connectNumber}
-                destination={item.destination}
-                departureTime={item.departureTime}
-                arrivalTime={item.arrivalTime}
-                departure={item.departure}
-                platform={item.platform}
-                timeColor={item.delay === 0 ? "green" : "red"}
-                time={
-                  item.delay + " " + this.props.t("display.deartures.minutes")
-                }
-              />
-            ))}
+          {(timeFilter === "arrival" ? trains : [...trains].reverse()).map((item, index) => (
+            <RowDelayMobile
+              key={index}
+              rowProps={calculateRowProps(item, stations, stationId)}
+            />
+          ))}
         </tbody>
       </table>
     );

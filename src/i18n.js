@@ -60,6 +60,7 @@ i18n.use(initReactI18next).init({
         "delays.searchBar.departures": "Departures",
         "delays.searchBar.button": "Display connections",
         "delays.list.connection": "Connection",
+        "delays.list.station": "Final Station",
         "delays.list.finalStation": "Final Station",
         "delays.list.over": "Over",
         "delays.list.arrival": "Arrival",

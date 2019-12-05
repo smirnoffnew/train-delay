@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 
-import { getRows, isNumber, getStations } from "../functions";
+import { isNumber, getStations } from "../functions";
 import DelayForm from "./DelayForm/DelayForm";
 import TableDelay from "./TableDelay/TableDelay";
 import TableDelayMobile from "./TableDelay/TableDelayMobile";
@@ -13,7 +12,8 @@ class DelayPage extends Component {
     locations: [],
     showLoader: true,
     trains: [],
-    stationId: null
+    stationId: null,
+    timeFilter: "arrival"
   };
 
   apiRequestLoop = () => {
@@ -72,7 +72,7 @@ class DelayPage extends Component {
   }
 
   render() {
-    const { rows, locations, trains, stationId, showLoader } = this.state;
+    const { timeFilter, locations, trains, stationId, showLoader } = this.state;
 
     let params = new URLSearchParams(window.location.search);
     if (!params.get("refresh")) {
@@ -131,9 +131,22 @@ class DelayPage extends Component {
     return (
       <div className="delay-page__wrapper">
         <h1 className="delay-page__title">{this.props.t("delays.title")}</h1>
-        <DelayForm stations={getStations(locations)} setStationId={id => this.setState({ stationId: id })} />
-        <TableDelay stations={getStations(locations)} trains={trains} stationId={stationId} />
-        <TableDelayMobile rows={getRows(rows, locations, 10)} trains={trains} stationId={stationId} />
+        <DelayForm
+          stations={getStations(locations)}
+          setStationId={id => this.setState({ stationId: id })}
+          setTimeFilter={value => this.setState({ timeFilter: value })}
+          timeFilter={timeFilter}
+        />
+        <TableDelay
+          stations={getStations(locations)}
+          trains={trains}
+          stationId={stationId}
+          timeFilter={timeFilter} />
+        <TableDelayMobile
+          stations={getStations(locations)}
+          trains={trains}
+          stationId={stationId}
+          timeFilter={timeFilter} />
         <div className="delay-page__button__wrapper">
           <button className="delay-page__button">{this.props.t("delays.searchBar.button")}</button>
         </div>

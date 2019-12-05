@@ -10,8 +10,7 @@ class DelayForm extends Component {
   state = {
     selectedOption: null,
     userLocation: null,
-    dateFilter: getTodayDate(),
-    timeFilter: ""
+    dateFilter: getTodayDate()
   };
 
   componentDidMount = () => {
@@ -23,6 +22,9 @@ class DelayForm extends Component {
   findClosestHandler = () => {
     if (!this.state.userLocation) {
       return console.error("User's location wasn't detected");
+    }
+    if (!this.props.stations.length) {
+      return console.error("Can't load stations data");
     }
     const { latitude: lat, longitude: lon } = this.state.userLocation;
     const distancesToStations = this.props.stations.map(({ latitude, longitude }) => {
@@ -36,23 +38,24 @@ class DelayForm extends Component {
     const minDistance = Math.min(...distancesToStations);
     const stationIndex = distancesToStations.indexOf(minDistance);
 
-    this.props.setStationId(this.props.stations[stationIndex].id);
-
     return this.setState({ selectedOption: this.calculateOptions(this.props.stations)[stationIndex] });
   }
 
   selectStationHandler = selectedOption => {
     this.setState({ selectedOption });
-    this.props.setStationId(selectedOption.value)
+    this.props.setStationId(selectedOption.value);
   }
 
-  chooseDateHandler = e => {
-    this.setState({ dateFilter: e.target.value })
+  submitHandler = () => {
+    const { selectedOption } = this.state;
+    if (selectedOption) {
+      this.props.setStationId(this.state.selectedOption.value)
+    }
 
   }
 
   render() {
-    const { stations } = this.props;
+    const { stations, timeFilter, setTimeFilter } = this.props;
     const { selectedOption, dateFilter } = this.state;
 
     return (
@@ -64,7 +67,7 @@ class DelayForm extends Component {
           <Select
             className="station-select"
             value={selectedOption}
-            onChange={this.selectStationHandler}
+            onChange={selectedOption => this.setState({ selectedOption })}
             options={this.calculateOptions(stations)}
           />
           <button className="location-button" type="button" onClick={this.findClosestHandler}></button>
@@ -83,8 +86,8 @@ class DelayForm extends Component {
                 name="arrivalDepartureFilter"
                 id="checkboxFirst"
                 className="invisibleCheckbox"
-                value="arrival"
-                onChange={({ target }) => this.setState({ timeFilter: target.value })}
+                checked={timeFilter === "arrival"}
+                onChange={() => setTimeFilter("arrival")}
               />
               <label className="checkbox-label" htmlFor="checkboxFirst">
                 <span className="radio-label">{this.props.t("delays.searchBar.arrivals")}</span>
@@ -97,7 +100,8 @@ class DelayForm extends Component {
                 id="checkboxSecond"
                 className="invisibleCheckbox"
                 value="departure"
-                onChange={({ target }) => this.setState({ timeFilter: target.value })}
+                checked={timeFilter === "departure"}
+                onChange={() => setTimeFilter("departure")}
               />
               <label className="checkbox-label" htmlFor="checkboxSecond">
                 <span className="radio-label">{this.props.t("delays.searchBar.departures")}</span>
@@ -106,7 +110,7 @@ class DelayForm extends Component {
           </div>
         </div>
 
-        <button className="delay-form__button">Ukázat spoje</button>
+        <button onClick={this.submitHandler} type="button" className="delay-form__button">{this.props.t("delays.searchBar.button")}</button>
       </form>
     );
   }

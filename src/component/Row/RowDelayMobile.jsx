@@ -1,63 +1,41 @@
 import React, { Component } from "react";
+import { withTranslation } from "react-i18next";
 
-//import trainIcon from "../../assets/Vector.png";
 import "./RowDelay.css";
+import { addDelayToDate } from "../../functions";
 import busIcon from "../../assets/bus-icon.png";
 import trainIcon from "../../assets/train-icon.png";
 
-class RowDelay extends Component {
-  state = {
-    isRowOpened: false
-  };
+class RowDelayMobile extends Component {
+  state = { isRowOpened: false };
+
   render() {
-    const {
-      stationsTypes,
-      connectNumber,
-      destination,
-      departureTime,
-      arrivalTime,
-      departure,
-      platform,
-      time
-    } = this.props;
+    const { stationsTypes, vehicleNumber, finalStation, overStations, arrival, departure, platform, delay } = this.props.rowProps;
 
     return (
       <>
-        <tr
-          className={
-            this.state.isRowOpened
-              ? "delay-table__row delay-table__row--opened"
-              : "delay-table__row"
-          }
-        >
+        <tr className={`delay-table__row ${this.state.isRowOpened && "delay-table__row--opened"}`}>
           <td>
-            <p className="delay-table__row__destination">{destination}</p>
-            {stationsTypes === "BUS_STATION" ? (
-              <img src={busIcon} alt="bus-icon" />
-            ) : (
-                <img src={trainIcon} alt="train-icon" />
-              )}
-            {connectNumber}
+            <p className="delay-table__row__destination">{finalStation}</p>
+            {stationsTypes && stationsTypes.map(type => <img key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
+            {vehicleNumber}
           </td>
           <td>
             <p>
-              {departureTime}
-              <span className="time-with-delay">12:20</span>
+              {arrival.toTimeString().slice(0, 5)}
+              {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(arrival, delay).toTimeString().slice(0, 5)}</span>}
             </p>
             <p className="delay-table__row__arrival-time">
-              {arrivalTime}
-              <span className="time-with-delay">13:20</span>
+              {departure.toTimeString().slice(0, 5)}
+              {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(departure, delay).toTimeString().slice(0, 5)}</span>}
             </p>
           </td>
           <td>
             <div className="last-column">
               <div>
                 <p
-                  className={`delay-table__row__delay--${
-                    time.split(" ")[0] === "0" ? "positive" : "negative"
-                    }`}
-                >
-                  {time}
+                  className={`delay-table__row__delay--${!delay ? "positive" : "negative"}`}>
+                  {delay} min
                   <svg
                     width="11"
                     height="10"
@@ -93,8 +71,8 @@ class RowDelay extends Component {
         {this.state.isRowOpened && (
           <tr className="delay-table__row__addition">
             <td colSpan="3">
-              <h4>Přes</h4>
-              <p>{departure}</p>
+              <h4>{this.props.t("delays.list.over")}</h4>
+              <p>{overStations.join(", ")}</p>
               <h4>Důvod zpozědní</h4>
               <p>
                 Spoj je opožděn z důvodu dopravní nehody na dálnici D1. Následky
@@ -108,4 +86,4 @@ class RowDelay extends Component {
   }
 }
 
-export default RowDelay;
+export default withTranslation()(RowDelayMobile);

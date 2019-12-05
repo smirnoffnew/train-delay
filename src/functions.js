@@ -98,7 +98,33 @@ export const getTodayDate = () => {
   if (day.length < 2)
     day = '0' + day;
 
-  console.log([year, month, day].join('-'))
   return [year, month, day].join('-');
+}
+
+export const calculateRowProps = (train, stations, stationId) => {
+  if (!train || !stations || !stationId) return
+
+  const stationById = (id, stations) => stations.find(station => station.id === id);
+
+  const currentStation = stationById(stationId, stations);
+  const connectionCurrentStation = train.connectionStations.find(item => item.stationId === stationId) || [];
+  
+  const stationsTypes = currentStation.stationsTypes;
+  const vehicleNumber = train.number;
+  const finalStation = stationById(train.connectionStations[train.connectionStations.length - 1].stationId, stations).fullname;
+  const overStations = train.connectionStations.map(({ stationId }) => stationById(stationId, stations) ? stationById(stationId, stations).cityName : "");
+  const arrival = new Date(connectionCurrentStation.arrival);
+  const departure = new Date(connectionCurrentStation.departure);
+  const platform = connectionCurrentStation.platform;
+  const delay = train.delay;
+
+  return { stationsTypes, vehicleNumber, finalStation, overStations, arrival, departure, platform, delay }
+}
+
+export const addDelayToDate = (date, delay) => {
+  let newDate = new Date(date);
+  newDate.setMinutes(date.getMinutes() + delay);
+
+  return newDate;
 }
 
