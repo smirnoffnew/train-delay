@@ -1,0 +1,226 @@
+.delay-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 30px 5px 60px;
+  background: #fff;
+  box-shadow: 0px 0px 29px -9px rgba(0, 0, 0, 0.93);
+  padding: 25px 10px 30px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.input-field--select {
+  flex-grow: 1;
+}
+
+.delay-form__flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 2;
+  align-items: center;
+}
+
+.delay-page__wrapper {
+  padding: 0 5px;
+  max-width: 1250px;
+  margin: 0 auto 30px;
+}
+
+.delay-page__wrapper button {
+  cursor: pointer;
+}
+
+.delay-form__flex-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.delay-page__title {
+  text-align: center;
+}
+
+.delay-page__button {
+  color: #005da8;
+  border: 1px solid #005da8;
+  border-radius: 3px;
+  width: 290px;
+  height: 43px;
+  background: white;
+  margin-top: 40px;
+}
+
+.delay-page__button__wrapper {
+  text-align: right;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.delay-form__label {
+  position: absolute;
+  display: block;
+  color: #00519e;
+  font-size: 12px;
+  left: 10px;
+}
+
+.delay-form__label.delay-form__label--select {
+  top: 10px;
+}
+
+.station-select {
+  min-width: 242px;
+  height: 47px;
+  font-weight: normal;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.station-select .css-yk16xz-control {
+  border: none;
+  border-bottom: 1px solid #999999;
+  border-radius: 0;
+}
+
+.station-select .css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+.station-select .css-tlfecz-indicatorContainer {
+  background: center no-repeat url("../../assets/burger-menu.png");
+  cursor: pointer;
+}
+
+.station-select .css-tlfecz-indicatorContainer svg {
+  opacity: 0;
+}
+
+.location-button {
+  border: 1px solid #005da8;
+  border-radius: 2px;
+  height: 47px;
+  width: 47px;
+  position: relative;
+  left: 10px;
+  top: 12px;
+  background: center no-repeat url("../../assets/geo-location-icon.png"),
+    rgb(255, 255, 255);
+}
+
+.delay-form__date-picker {
+  border: none;
+  border-bottom: 1px solid #999999;
+  font-size: 18px;
+  padding: 10px;
+  width: 107px;
+  margin-right: 20px;
+}
+
+/* Checkboxes */
+
+.invisibleCheckbox {
+  display: none;
+}
+
+.checkbox-label:hover + .popup {
+  display: block;
+  opacity: 1;
+}
+
+.invisibleCheckbox:checked + .checkbox-label::before {
+  content: "✔";
+  color: white;
+  margin-left: 5px;
+  position: absolute;
+}
+
+.checkbox-wrapper:first-child {
+  margin-bottom: 0;
+}
+
+.checkbox-wrapper {
+  display: inline-block;
+  position: relative;
+  bottom: 10px;
+}
+
+.checkbox-label {
+  cursor: pointer;
+  display: block;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: #005da8;
+  margin-right: 80px;
+  border: 1px solid #999999;
+  position: relative;
+}
+
+/* .checkbox-label::after {
+  position: absolute;
+  left: 29px;
+  white-space: nowrap;
+}
+
+#checkboxFirst + .checkbox-label::after {
+  content: "Arrivals";
+}
+#checkboxSecond + .checkbox-label::after {
+  content: "Departures";
+} */
+.radio-label {
+  position: relative;
+    left: 26px;
+}
+
+
+.delay-form__button {
+  background: #fcc834;
+  border: 1px solid #c19800;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 18px;
+  height: 50px;
+  width: 100%;
+  max-width: 314px;
+}
+
+@media (min-width: 730px) {
+  .delay-form {
+
+  }
+
+  .delay-page__wrapper {
+    padding: 0 5px;
+  }
+
+  .location-button {
+    margin-right: 25px;
+  }
+
+  .delay-form {
+    flex-direction: row;
+  }
+
+  .input-field {
+    margin-bottom: 0;
+  }
+  .checkbox-wrapper {
+    display: block;
+    bottom: 2px;
+  }
+  .checkbox-wrapper:first-child {
+    margin-bottom: 7px;
+  }
+  .delay-form__button {
+    width: 192px;
+  }
+
+  .delay-form__date-picker {
+    width: 147px;
+  }
+}

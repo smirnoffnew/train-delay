@@ -1,0 +1,13 @@
+.live-line-wrapper-row {
+  width: 100%;
+	position: absolute; 
+	left: 0;
+	bottom: -12px;
+  white-space: nowrap;
+}
+.live-line-wrapper-row .live-line-row {
+  padding-right: 200px;
+  word-spacing: 50px;
+  font-weight: 300;
+}
+

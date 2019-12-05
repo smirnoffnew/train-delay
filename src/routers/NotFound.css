@@ -1,0 +1,19 @@
+.not-found{
+  background: #FABB00;
+  border-radius: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #1C2D4D;
+  padding: 40px;
+}
+
+.large-font-size{
+  font-size: 200px;
+}
+
+.list{
+  text-align: left;
+}
