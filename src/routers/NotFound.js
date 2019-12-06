@@ -4,15 +4,7 @@ import './NotFound.css'
 
 class NotFound extends Component {
   render() {
-    return (
-      // <Redirect
-      //   to={`/?lang=en&refresh=5000`}
-      // />
-
-      <>
-      </>
-
-    )
+    return <Redirect to={`/?lang=en&refresh=30`} />
   }
 }
 

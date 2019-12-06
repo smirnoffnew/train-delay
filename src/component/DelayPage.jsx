@@ -15,7 +15,8 @@ class DelayPage extends Component {
     stationId: null,
     timeFilter: "arrival",
     showTableLoader: false,
-    trainsQuantity: 10
+    trainsQuantity: 10,
+    message: ""
   };
 
   apiRequestLoop = () => {
@@ -57,10 +58,10 @@ class DelayPage extends Component {
     this.setState({ showTableLoader: true })
     fetch(url, { mode: "cors" })
       .then(response => response.json())
-      .then(trains => this.setState({ trains, showTableLoader: false }))
+      .then(trains => this.setState({ trains, showTableLoader: false, message: trains.length ? "" : "No arrivals today :("}))
       .catch(error => {
         console.log(error.message);
-        this.setState({ showTableLoader: false })
+        this.setState({ showTableLoader: false, message: "Can't load data :(" })
       });
   }
 
@@ -72,16 +73,14 @@ class DelayPage extends Component {
       setInterval(() => this.tick(), 1000 * params.get("refresh"));
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_, prevState) {
     if (prevState.stationId !== this.state.stationId) {
       this.getTrains(this.state.stationId)
     }
   }
 
   render() {
-    const { timeFilter, locations, trains, stationId, showLoader, showTableLoader, trainsQuantity } = this.state;
-
-    console.log(trains)
+    const { timeFilter, locations, trains, stationId, showLoader, showTableLoader, trainsQuantity, message } = this.state;
 
     let params = new URLSearchParams(window.location.search);
     if (!params.get("refresh")) {
@@ -153,6 +152,7 @@ class DelayPage extends Component {
           stationId={stationId}
           timeFilter={timeFilter}
           showTableLoader={showTableLoader}
+          message={message}
         />
         <TableDelayMobile
           stations={getStations(locations)}

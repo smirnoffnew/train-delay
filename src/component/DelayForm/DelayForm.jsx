@@ -46,7 +46,8 @@ class DelayForm extends Component {
     this.props.setStationId(selectedOption.value);
   }
 
-  submitHandler = () => {
+  submitHandler = e => {
+    e.preventDefault();
     const { selectedOption } = this.state;
     if (selectedOption) {
       this.props.setStationId(this.state.selectedOption.value)
@@ -58,7 +59,7 @@ class DelayForm extends Component {
     const { selectedOption, dateFilter } = this.state;
 
     return (
-      <form className="delay-form">
+      <form className="delay-form" onSubmit={this.submitHandler}>
         <div className="input-field input-field--select">
           <label className="delay-form__label delay-form__label--select">
             {this.props.t("delays.searchBar.station")}
@@ -69,7 +70,7 @@ class DelayForm extends Component {
             onChange={selectedOption => this.setState({ selectedOption })}
             options={this.calculateOptions(stations)}
             isDisabled={showLoader}
-            placeholder={showLoader && "Loading..."}
+            placeholder={showLoader ? "Loading..." : "Choose station"}
           />
           <button className="location-button" type="button" onClick={this.findClosestHandler}></button>
         </div>
@@ -111,7 +112,7 @@ class DelayForm extends Component {
           </div>
         </div>
 
-        <button onClick={this.submitHandler} type="button" className="delay-form__button">{this.props.t("delays.searchBar.button")}</button>
+        <button className="delay-form__button">{this.props.t("delays.searchBar.button")}</button>
       </form>
     );
   }

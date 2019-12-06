@@ -7,7 +7,7 @@ import RowDelay from "../Row/RowDelay";
 
 class TableDelay extends Component {
   render() {
-    const { stations, stationId, trains, timeFilter, showTableLoader } = this.props;
+    const { stations, stationId, trains, timeFilter, showTableLoader, message } = this.props;
 
     return (
       <>
@@ -26,6 +26,9 @@ class TableDelay extends Component {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td colSpan="7">{message}</td>
+            </tr>
             {(timeFilter === "arrival" ? trains : [...trains].reverse()).map((item, index) => (
               <RowDelay
                 key={index}
