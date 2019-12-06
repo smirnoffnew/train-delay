@@ -55,6 +55,12 @@
   text-align: right;
 }
 
+.delay-page__button:disabled {
+  color:#b1bcc5;
+  border-color: #b1bcc5;
+  cursor: initial;
+}
+
 .input-field {
   position: relative;
   margin-bottom: 22px;

@@ -14,7 +14,8 @@ class DelayPage extends Component {
     trains: [],
     stationId: null,
     timeFilter: "arrival",
-    showTableLoader: false
+    showTableLoader: false,
+    trainsQuantity: 10
   };
 
   apiRequestLoop = () => {
@@ -52,7 +53,7 @@ class DelayPage extends Component {
   };
 
   getTrains = stationId => {
-    const url = `https://dpl-qa-ybus-pubapi.sa.cz/restapi/routes/${stationId}/departures`
+    const url = `https://dpl-qa-ybus-pubapi.sa.cz/restapi/routes/${stationId}/departures?limit=1000`
     this.setState({ showTableLoader: true })
     fetch(url, { mode: "cors" })
       .then(response => response.json())
@@ -78,7 +79,9 @@ class DelayPage extends Component {
   }
 
   render() {
-    const { timeFilter, locations, trains, stationId, showLoader, showTableLoader } = this.state;
+    const { timeFilter, locations, trains, stationId, showLoader, showTableLoader, trainsQuantity } = this.state;
+
+    console.log(trains)
 
     let params = new URLSearchParams(window.location.search);
     if (!params.get("refresh")) {
@@ -139,27 +142,33 @@ class DelayPage extends Component {
         <h1 className="delay-page__title">{this.props.t("delays.title")}</h1>
         <DelayForm
           stations={getStations(locations)}
-          setStationId={id => this.setState({ stationId: id })}
+          setStationId={id => this.setState({ stationId: id, trainsQuantity: 10 })}
           setTimeFilter={value => this.setState({ timeFilter: value })}
           timeFilter={timeFilter}
           showLoader={showLoader}
         />
         <TableDelay
           stations={getStations(locations)}
-          trains={trains}
+          trains={trains.slice(0, trainsQuantity)}
           stationId={stationId}
           timeFilter={timeFilter}
           showTableLoader={showTableLoader}
         />
         <TableDelayMobile
           stations={getStations(locations)}
-          trains={trains}
+          trains={trains.slice(0, trainsQuantity)}
           stationId={stationId}
           timeFilter={timeFilter}
           showTableLoader={showTableLoader}
         />
         <div className="delay-page__button__wrapper">
-          <button className="delay-page__button">{this.props.t("delays.searchBar.button")}</button>
+          <button
+            onClick={() => this.setState({ trainsQuantity: trainsQuantity + 5 })}
+            disabled={trains.length <= trainsQuantity}
+            className="delay-page__button"
+          >
+            {this.props.t("delays.searchBar.button")}
+          </button>
         </div>
       </div>
     );

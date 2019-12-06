@@ -23,6 +23,10 @@
   line-height: 21px;
 }
 
+.over-column {
+  min-width: 100px;
+}
+
 /* LOADER */
 
 .loader {

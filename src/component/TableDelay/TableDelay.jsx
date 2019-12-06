@@ -4,7 +4,6 @@ import { withTranslation } from "react-i18next";
 import "./TableDelay.css";
 import { calculateRowProps } from "../../functions";
 import RowDelay from "../Row/RowDelay";
-import { directive } from "@babel/types";
 
 class TableDelay extends Component {
   render() {
@@ -18,7 +17,7 @@ class TableDelay extends Component {
             <tr className="delay-table__header">
               <th>{this.props.t("delays.list.connection")}</th>
               <th>{this.props.t("delays.list.finalStation")}</th>
-              <th>{this.props.t("delays.list.over")}</th>
+              <th className="over-column">{this.props.t("delays.list.over")}</th>
               <th>{this.props.t("delays.list.arrival")}</th>
               <th>{this.props.t("delays.list.departure")}</th>
               <th>{this.props.t("delays.list.platform")}</th>
