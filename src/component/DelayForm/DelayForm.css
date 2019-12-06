@@ -61,6 +61,10 @@
   cursor: initial;
 }
 
+.delay-page__button:focus {
+  outline: none;
+}
+
 .input-field {
   position: relative;
   margin-bottom: 22px;
@@ -178,18 +182,6 @@
   position: relative;
 }
 
-/* .checkbox-label::after {
-  position: absolute;
-  left: 29px;
-  white-space: nowrap;
-}
-
-#checkboxFirst + .checkbox-label::after {
-  content: "Arrivals";
-}
-#checkboxSecond + .checkbox-label::after {
-  content: "Departures";
-} */
 .radio-label {
   position: relative;
     left: 26px;

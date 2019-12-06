@@ -47,7 +47,6 @@ class DelayPage extends Component {
   };
 
   tick = () => {
-    //this.apiRequestLoop();
     if (this.state.stationId) {
       this.getTrains(this.state.stationId);
     }
@@ -160,6 +159,7 @@ class DelayPage extends Component {
           stationId={stationId}
           timeFilter={timeFilter}
           showTableLoader={showTableLoader}
+          message={message}
         />
         <div className="delay-page__button__wrapper">
           <button

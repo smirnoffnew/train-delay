@@ -133,29 +133,3 @@
 .delay-table__row--opened td:last-child {
   border-radius: 0 3px 0 0;
 }
-
-/* .places-delay {
-  color: #fefefe !important;
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 20px;
-  margin-right: 10px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.green-delay {
-  color: #fefefe !important;
-  background: green;
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 20px;
-}
-
-.red-delay {
-  color: #fefefe !important;
-  background: red;
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 20px;
-} */

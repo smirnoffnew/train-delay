@@ -62,34 +62,3 @@
     padding-left: 20px;
   }
 }
-
-/* .head-group-delay{
-  width: 100%;
-  display: flex;
-  font-size: 20px;
-  align-items: flex-end;
-  font-weight: 600;
-}
-
-.head-group-delay p {
-  padding: 10px;
-}
-
-.rows-wrapper-delay{ 
-  width: 100%; 
-  height: calc(100% - 162px);
-  position: absolute;
-}
-
-.rows-wrapper-small-delay{
-  width: 100%; 
-  height: calc(100% - 118px);
-  position: absolute;
-}
-
-.rows-constainer-delay{ 
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-} */

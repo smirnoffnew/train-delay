@@ -10,7 +10,7 @@ class TableDelayMobile extends Component {
   componentDidUpdate = () => { };
 
   render() {
-    const { stations, stationId, trains, timeFilter, showTableLoader } = this.props;
+    const { stations, stationId, trains, timeFilter, showTableLoader, message } = this.props;
 
     return (
       <>
@@ -24,6 +24,9 @@ class TableDelayMobile extends Component {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td colSpan="3">{message}</td>
+            </tr>
             {(timeFilter === "arrival" ? trains : [...trains].reverse()).map((item, index) => (
               <RowDelayMobile
                 key={index}
