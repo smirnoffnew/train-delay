@@ -57,7 +57,7 @@ class DelayPage extends Component {
     this.setState({ showTableLoader: true })
     fetch(url, { mode: "cors" })
       .then(response => response.json())
-      .then(trains => this.setState({ trains, showTableLoader: false, message: trains.length ? "" : "No arrivals today :("}))
+      .then(trains => this.setState({ trains, showTableLoader: false, message: trains.length ? "" : "No arrivals today :(" }))
       .catch(error => {
         console.log(error.message);
         this.setState({ showTableLoader: false, message: "Can't load data :(" })
