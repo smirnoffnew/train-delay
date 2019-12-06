@@ -35,7 +35,7 @@ class RowDelay extends Component {
         <td className={`delay-table__row__delay--${!delay ? "positive" : "negative"}`}>
           {delay ? delay + " min." : this.props.t("delays.list.noDelay")}
         </td>
-        <td></td>
+        {/* <td></td> */}
       </tr>
     );
   }

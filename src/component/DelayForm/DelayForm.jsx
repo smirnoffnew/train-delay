@@ -51,11 +51,10 @@ class DelayForm extends Component {
     if (selectedOption) {
       this.props.setStationId(this.state.selectedOption.value)
     }
-
   }
 
   render() {
-    const { stations, timeFilter, setTimeFilter } = this.props;
+    const { stations, timeFilter, setTimeFilter, showLoader } = this.props;
     const { selectedOption, dateFilter } = this.state;
 
     return (
@@ -69,6 +68,8 @@ class DelayForm extends Component {
             value={selectedOption}
             onChange={selectedOption => this.setState({ selectedOption })}
             options={this.calculateOptions(stations)}
+            isDisabled={showLoader}
+            placeholder={showLoader && "Loading..."}
           />
           <button className="location-button" type="button" onClick={this.findClosestHandler}></button>
         </div>

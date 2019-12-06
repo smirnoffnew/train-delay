@@ -99,6 +99,18 @@
   opacity: 0;
 }
 
+.station-select .css-1pahdxg-control, .station-select .css-1fhf3k1-control{
+  background: none;
+  border: none;
+  border-bottom: 1px solid #999999;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.station-select .css-109onse-indicatorSeparator {
+  display: none;
+}
+
 .location-button {
   border: 1px solid #005da8;
   border-radius: 2px;

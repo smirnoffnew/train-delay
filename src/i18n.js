@@ -14,7 +14,7 @@ i18n.use(initReactI18next).init({
         "delays.searchBar.departures": "Odjezdy",
         "delays.searchBar.button": "Ukázat spoje",
         "delays.list.connection": "Spoj",
-        "delays.list.station": "Cílová stanice",
+        "delays.list.finalStation": "Cílová stanice",
         "delays.list.over": "Přes",
         "delays.list.arrival": "Příjezd",
         "delays.list.departure": "Odjezd",
@@ -37,7 +37,7 @@ i18n.use(initReactI18next).init({
         "delays.searchBar.departures": "Odjezdy",
         "delays.searchBar.button": "Ukázat spoje",
         "delays.list.connection": "Spoj",
-        "delays.list.station": "Cílová stanice",
+        "delays.list.finalStation": "Cílová stanice",
         "delays.list.over": "Přes",
         "delays.list.arrival": "Příjezd",
         "delays.list.departure": "Odjezd",
@@ -60,7 +60,6 @@ i18n.use(initReactI18next).init({
         "delays.searchBar.departures": "Departures",
         "delays.searchBar.button": "Display connections",
         "delays.list.connection": "Connection",
-        "delays.list.station": "Final Station",
         "delays.list.finalStation": "Final Station",
         "delays.list.over": "Over",
         "delays.list.arrival": "Arrival",
@@ -77,6 +76,23 @@ i18n.use(initReactI18next).init({
     //Ukrainian
     ua: {
       translations: {
+        "delays.title": "Затримки",
+        "delays.searchBar.station": "Станція",
+        "delays.searchBar.date": "Дата",
+        "delays.searchBar.arrivals": "Прибуття",
+        "delays.searchBar.departures": "Відправлення",
+        "delays.searchBar.button": "Відображення сполучень",
+        "delays.list.connection": "Сполучення",
+        "delays.list.finalStation": "Кінцева станція",
+        "delays.list.over": "Over",
+        "delays.list.arrival": "Прибуття",
+        "delays.list.departure": "Відправлення",
+        "delays.list.platform": "Платформа",
+        "delays.list.delay": "Затримка",
+        "delays.list.noDelay": "Вчасно",
+        "delays.mobile.list.finalStation": "Кінцева станція",
+        "delays.mobile.list.arrival.departure": "Прибуття/Відправлення",
+        "delays.mobile.list.delay.platform": "Затримка/Платформа",
       }
     },
 
@@ -102,7 +118,23 @@ i18n.use(initReactI18next).init({
     //Russian
     ru: {
       translations: {
-        
+        "delays.title": "Задержки",
+        "delays.searchBar.station": "Станция",
+        "delays.searchBar.date": "Дата",
+        "delays.searchBar.arrivals": "Прибытие",
+        "delays.searchBar.departures": "Отправление",
+        "delays.searchBar.button": "Отобразить соединения",
+        "delays.list.connection": "Соединения",
+        "delays.list.finalStation": "Конечная станция",
+        "delays.list.over": "Over",
+        "delays.list.arrival": "Прибуття",
+        "delays.list.departure": "Відправлення",
+        "delays.list.platform": "Платформа",
+        "delays.list.delay": "Затримка",
+        "delays.list.noDelay": "Вчасно",
+        "delays.mobile.list.finalStation": "Конечная станция",
+        "delays.mobile.list.arrival.departure": "Прибуття/Відправлення",
+        "delays.mobile.list.delay.platform": "Затримка/Платформа",
       }
     },
 

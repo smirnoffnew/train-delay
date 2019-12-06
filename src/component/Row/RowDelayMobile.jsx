@@ -73,11 +73,11 @@ class RowDelayMobile extends Component {
             <td colSpan="3">
               <h4>{this.props.t("delays.list.over")}</h4>
               <p>{overStations.join(", ")}</p>
-              <h4>Důvod zpozědní</h4>
+              {/* <h4>Důvod zpozědní</h4>
               <p>
                 Spoj je opožděn z důvodu dopravní nehody na dálnici D1. Následky
                 nehody jsou v současné době odstraňovány.
-              </p>
+              </p> */}
             </td>
           </tr>
         )}
