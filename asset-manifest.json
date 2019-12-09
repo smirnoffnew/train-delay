@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/train-delay/static/css/main.536de958.chunk.css",
+    "main.css": "/train-delay/static/css/main.13bc94be.chunk.css",
     "main.js": "/train-delay/static/js/main.4a92c9de.chunk.js",
     "main.js.map": "/train-delay/static/js/main.4a92c9de.chunk.js.map",
     "runtime-main.js": "/train-delay/static/js/runtime-main.4098fdcd.js",
@@ -8,14 +8,14 @@
     "static/js/2.b1d492d5.chunk.js": "/train-delay/static/js/2.b1d492d5.chunk.js",
     "static/js/2.b1d492d5.chunk.js.map": "/train-delay/static/js/2.b1d492d5.chunk.js.map",
     "index.html": "/train-delay/index.html",
-    "precache-manifest.29bac64351a226ca00f78b3b34226373.js": "/train-delay/precache-manifest.29bac64351a226ca00f78b3b34226373.js",
+    "precache-manifest.257f33c4751e8bec98ca6f751a2d6ce8.js": "/train-delay/precache-manifest.257f33c4751e8bec98ca6f751a2d6ce8.js",
     "service-worker.js": "/train-delay/service-worker.js",
-    "static/css/main.536de958.chunk.css.map": "/train-delay/static/css/main.536de958.chunk.css.map"
+    "static/css/main.13bc94be.chunk.css.map": "/train-delay/static/css/main.13bc94be.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.4098fdcd.js",
     "static/js/2.b1d492d5.chunk.js",
-    "static/css/main.536de958.chunk.css",
+    "static/css/main.13bc94be.chunk.css",
     "static/js/main.4a92c9de.chunk.js"
   ]
 }
