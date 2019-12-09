@@ -4,11 +4,16 @@
   display: flex;
   border-bottom: 2px solid #c3ccd2;
 }
+
 .rowItem-delay {
   display: flex;
   padding: 10px;
   position: relative;
   align-self: center;
+}
+
+.station-type-icon {
+  padding-right: 10px;
 }
 
 .row-item-text-delay {

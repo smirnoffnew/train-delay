@@ -14,7 +14,7 @@ class RowDelay extends Component {
     return (
       <tr className="delay-table__row">
         <td>
-          {stationsTypes.map(type => <img key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
+          {stationsTypes.map(type => <img className="station-type-icon" key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
           {vehicleNumber}
         </td>
         <td className="delay-table__row__destination">{finalStation}</td>

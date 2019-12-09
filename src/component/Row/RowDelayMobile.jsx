@@ -17,7 +17,7 @@ class RowDelayMobile extends Component {
         <tr className={`delay-table__row ${this.state.isRowOpened && "delay-table__row--opened"}`}>
           <td>
             <p className="delay-table__row__destination">{finalStation}</p>
-            {stationsTypes && stationsTypes.map(type => <img key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
+            {stationsTypes && stationsTypes.map(type => <img  className="station-type-icon" key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
             {vehicleNumber}
           </td>
           <td>

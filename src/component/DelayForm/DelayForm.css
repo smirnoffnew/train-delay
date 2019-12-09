@@ -228,5 +228,11 @@
 
   .delay-form__date-picker {
     width: 147px;
+    font-family: inherit;
+    color: #1B1B1B;
   }
+}
+
+@media (max-width: 420px) {
+  .station-select {min-width: 200px;}
 }
