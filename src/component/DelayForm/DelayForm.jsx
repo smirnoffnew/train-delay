@@ -78,7 +78,7 @@ class DelayForm extends Component {
         <div className="delay-form__flex-wrapper">
           <div className="input-field">
             <label className="delay-form__label">{this.props.t("delays.searchBar.date")}</label>
-            <input disabled onChange={this.chooseDateHandler} value={dateFilter} className="delay-form__date-picker" type="date" />
+            <input disabled onChange={this.chooseDateHandler} value={dateFilter} className="delay-form__date-picker" type="text" />
           </div>
 
           <div>

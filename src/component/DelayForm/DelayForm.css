@@ -234,5 +234,7 @@
 }
 
 @media (max-width: 420px) {
-  .station-select {min-width: 200px;}
+  .station-select {
+    min-width: 200px;
+  }
 }

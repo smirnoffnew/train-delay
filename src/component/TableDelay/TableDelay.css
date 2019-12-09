@@ -38,7 +38,7 @@
   animation: spin 2s linear infinite;
   position: absolute;
   top: 30%;
-  right: 45%;
+  right: calc(50% - 60px);
   transform: translate(-50%, -50%);
 }
 
