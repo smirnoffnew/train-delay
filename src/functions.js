@@ -76,8 +76,8 @@ export const getStations = locations => {
   const stationsArray = [];
 
   locations.map(country =>
-    country.cities.map(({ name: cityName, stationsTypes, stations }) =>
-      stations.map(({ significance, fullname, id, latitude, longitude }) =>
+    country.cities.map(({ name: cityName, stations }) =>
+      stations.map(({ significance, fullname, id, stationsTypes, latitude, longitude }) =>
         stationsArray.push({ significance, stationsTypes, fullname, cityName, id, latitude, longitude }))));
 
   return stationsArray
@@ -108,7 +108,7 @@ export const calculateRowProps = (train, stations, stationId) => {
 
   const currentStation = stationById(stationId, stations);
   const connectionCurrentStation = train.connectionStations.find(item => item.stationId === stationId) || [];
-  
+
   const stationsTypes = currentStation.stationsTypes;
   const vehicleNumber = train.number;
   const finalStation = stationById(train.connectionStations[train.connectionStations.length - 1].stationId, stations).fullname;
