@@ -28,13 +28,18 @@
   white-space: pre-line;
 }
 
-.time-with-delay {
-  color: #e2003b;
-  margin-left: 10px;
+.time-display {
+  padding-right: 
+  10px;
 }
 
-.delay-table__row__arrival-time {
+.time-display--bold, .time-with-delay--bold {
   font-weight: bold;
+}
+
+.time-with-delay {
+  color: #e2003b;
+  padding-right: 10px;
 }
 
 .delay-table__row .live-line-wrapper-row {
@@ -74,6 +79,10 @@
   border-spacing: 0px;
 }
 
+.vehicle-number {
+  white-space: nowrap;
+}
+
 .delay-table--mobile .delay-table__row td {
   border-bottom: 1px solid #999999;
 }
@@ -85,6 +94,10 @@
 .delay-table__row__destination {
   font-weight: bold;
   color: #00519e;
+}
+
+.delay-table--mobile .delay-table__row:nth-child(odd) .delay-table__row__destination {
+  color: #292929;
 }
 
 .delay-table__row__delay--positive {

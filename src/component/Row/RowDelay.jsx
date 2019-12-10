@@ -15,7 +15,7 @@ class RowDelay extends Component {
       <tr className="delay-table__row">
         <td>
           {stationsTypes.map(type => <img className="station-type-icon" key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
-          {vehicleNumber}
+          <span className="vehicle-number">{vehicleNumber}</span>
         </td>
         <td className="delay-table__row__destination">{finalStation}</td>
         <td>
@@ -24,12 +24,12 @@ class RowDelay extends Component {
           </div>
         </td>
         <td>
-          {arrival.toTimeString().slice(0, 5)}
-          {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(arrival, delay).toTimeString().slice(0, 5)}</span>}
+          <p className="time-display">{arrival.toTimeString().slice(0, 5)}</p>
+          {Boolean(delay) && <p className="time-with-delay">{addDelayToDate(arrival, delay).toTimeString().slice(0, 5)}</p>}
         </td>
         <td>
-          {departure.toTimeString().slice(0, 5)}
-          {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(departure, delay).toTimeString().slice(0, 5)}</span>}
+         <p className="time-display time-display--bold">{departure.toTimeString().slice(0, 5)}</p>
+          {Boolean(delay) && <p className="time-with-delay time-with-delay--bold">{addDelayToDate(departure, delay).toTimeString().slice(0, 5)}</p>}
         </td>
         <td>{platform}</td>
         <td className={`delay-table__row__delay--${!delay ? "positive" : "negative"}`}>

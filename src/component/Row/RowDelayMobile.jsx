@@ -17,17 +17,17 @@ class RowDelayMobile extends Component {
         <tr className={`delay-table__row ${this.state.isRowOpened && "delay-table__row--opened"}`}>
           <td>
             <p className="delay-table__row__destination">{finalStation}</p>
-            {stationsTypes && stationsTypes.map(type => <img  className="station-type-icon" key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
-            {vehicleNumber}
+            {stationsTypes && stationsTypes.map(type => <img className="station-type-icon" key={type} src={type === "BUS_STATION" ? busIcon : trainIcon} alt="bus-icon" />)}
+            <span className="vehicle-number">{vehicleNumber}</span>
           </td>
           <td>
             <p>
-              {arrival.toTimeString().slice(0, 5)}
-              {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(arrival, delay).toTimeString().slice(0, 5)}</span>}
+              <span className="time-display">{arrival.toTimeString().slice(0, 5)}</span>
+              <span className="time-display time-display--bold">{departure.toTimeString().slice(0, 5)}</span>
             </p>
-            <p className="delay-table__row__arrival-time">
-              {departure.toTimeString().slice(0, 5)}
-              {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(departure, delay).toTimeString().slice(0, 5)}</span>}
+            <p>
+              {Boolean(delay) && <span className="time-with-delay">{addDelayToDate(arrival, delay).toTimeString().slice(0, 5)}</span>}
+              {Boolean(delay) && <span className="time-with-delay time-with-delay--bold">{addDelayToDate(departure, delay).toTimeString().slice(0, 5)}</span>}
             </p>
           </td>
           <td>
